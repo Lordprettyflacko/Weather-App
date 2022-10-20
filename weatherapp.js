@@ -3,6 +3,9 @@ $( document ).ready(function() {
     console.log( "ready!" );
 });
 
+let $key = prompt('Go to Openweathermap.org and sign up for a key. Once you have an API key, enter it below');
+
+
 //make input field 
 const $inputField = $("input").prop({id: "searchBar"});
 const $searchBar = $("#searchBar");
@@ -25,7 +28,7 @@ function start() {
   const $list = ['chicago', 'new york', 'paris', 'tokyo'];
   var $random = Math.floor(Math.random()*$list.length);
   console.log($random);
-  $.get("https://api.openweathermap.org/data/2.5/weather?q=" +$list[$random] + "&units=imperial&appid=c675534714ff8a930801b0f83cad06e4", (data) => {
+  $.get("https://api.openweathermap.org/data/2.5/weather?q=" +$list[$random] + "&units=imperial&appid=" + $key, (data) => {
     //see if data is visible
     console.log(data);
     //verify obj keys
@@ -69,7 +72,7 @@ $searchButton.on("click", function(){
     //clear old card
   clear();
   //get data from source
-  $.get("https://api.openweathermap.org/data/2.5/weather?q=" + $searchBar.val() + "&units=imperial&appid=c675534714ff8a930801b0f83cad06e4", (data) => {
+  $.get("https://api.openweathermap.org/data/2.5/weather?q=" + $searchBar.val() + "&units=imperial&appid=" + $key, (data) => {
     //see if data is visible
     console.log(data);
     //verify obj keys
@@ -110,7 +113,7 @@ $searchButton.on("click", function(){
 $searchBar.on("keypress", function(e){
     if (e.key === 'Enter') {
         clear();
-        $.get("https://api.openweathermap.org/data/2.5/weather?q=" + $searchBar.val() + "&units=imperial&appid=c675534714ff8a930801b0f83cad06e4", (data) => {
+        $.get("https://api.openweathermap.org/data/2.5/weather?q=" + $searchBar.val() + "&units=imperial&appid=" +$key, (data) => {
           console.log(data);
           console.log(data.name);
           
@@ -149,7 +152,8 @@ $searchBar.on("keypress", function(e){
 //ideas: 
     //starts with weather data of random city
     //handle har to navigate site
-    //create card recommening clothing based on weather    
+    //create card recommening clothing based on weather   
+    
 
 
 
