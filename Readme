@@ -1,0 +1,5 @@
+In order to start Web Application, Fork this repo and download it.
+Next, open the Weather App in your preferred code editor.
+Finally, type the command "open weather.html" in your terminal.
+
+The API for the web application requires a key. Go to https://openweathermap.org/ and make an account to get access to a free key. Once you have the key, copy and paste it into the prompt that is provided at start of application
